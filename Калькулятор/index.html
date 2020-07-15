@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+</head>
+
+<body>
+
+    <form action="">
+        <input name="textOn" id="NumberOny" type="number" placeholder="Введите первое число" required="required">
+        <select name="znak" id="select">
+            <option value="1">+</option>
+            <option value="2">-</option>
+            <option value="3">*</option>
+            <option value="4">/</option>
+        </select>
+        <input name="textTwo" id="NumberTwo" type="number" placeholder="Введите второе число" required="required">
+        <br>
+        <button id="btn" required="required">Посчитать</button>
+    </form>
+
+    <style>
+        html,
+        body {
+            height: 98%;
+            position: relative;
+        }
+
+        form {
+            white-space: nowrap;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 45%;
+        }
+
+        #btn {
+            width: 100%;
+            padding: 20px 50px;
+            margin-top: 10px;
+            border: 2px solid black;
+            background-color: brown;
+            font-size: 25px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #btn:disabled {
+            background-color: #ccc;
+            cursor: default;
+        }
+
+        
+
+        input,
+        select {
+            font-size: 25px;
+            color: #fff;
+            background-color: brown;
+            padding: 20px 50px;
+            border: 2px solid black;
+            outline: none;
+            text-align: center;
+        }
+
+        select {
+            font-size: 24px;
+        }
+
+        input::placeholder,
+        select::placeholder {
+            color: #fff;
+        }
+
+    </style>
+
+    <script>
+        document.getElementById("btn").onclick = function () {
+            var numberOny = +document.getElementById("NumberOny").value;
+            var numberTwo = +document.getElementById("NumberTwo").value;
+            var znak = document.getElementById("select").value;
+            var result = 0;
+            if (znak == 1) {
+                result = numberOny + numberTwo;
+            }
+            else if (znak == 2) {
+                result = numberOny - numberTwo;
+            }
+            else if (znak == 3) {
+                result = numberOny * numberTwo;
+            }
+            else if (znak == 4) {
+                result = numberOny / numberTwo;
+            }
+            alert(result);
+        };   
+    </script>
+
+</body>
+
+</html>
