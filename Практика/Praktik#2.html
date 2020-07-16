@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практика</title>
+</head>
+
+<body>
+    <script>
+        let numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели", "");
+
+        let personalMovieDB = {
+            count: numberOfFilms,
+            movies: {},
+            actors: {},
+            genres: [],
+            privat: false
+        }
+
+        for (let i = 0; i < 2; i++) {
+            let soruFirst = prompt("Один из последних просмотроенных фильмов?", ""),
+                soruTwo = prompt("На сколько оцените его?", "");
+            if (soruFirst != null && soruTwo != null && soruFirst != '' && soruTwo != '' && soruFirst.length < 50) {
+                personalMovieDB.movies[soruFirst] = soruTwo;
+                console.log('done');
+            } else {
+                console.log('error');
+                i--;
+            }
+        }
+
+        if (personalMovieDB.count < 10) {
+            console.log('Просмотрено довольно мало фильмов');
+        } else if (personalMovieDB.count > 10 && personalMovieDB.count < 30) {
+            console.log('Вы классический зритель');
+        } else if (personalMovieDB.count > 30) {
+            console.log('Вы киноман');
+        } else {
+            console.log('Произошла ошибка');
+        }
+
+    </script>
+</body>
+
+</html>
