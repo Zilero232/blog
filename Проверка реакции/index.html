@@ -93,17 +93,22 @@
         }
     </style>
     <script type="text/javascript">
+
         var start = new Date().getTime();
+
         function RandomPlay() {
+            
             var start = new Date().getTime();
             var generateColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
             var radiusFull = Math.floor(Math.random() * 51) + "%";
             var topik = Math.floor(Math.random() * 75) + "%";
             var left = Math.floor(Math.random() * 75) + "%";
+
             document.getElementById("radius").style.top = topik;
             document.getElementById("radius").style.left = left;
             document.getElementById("radius").style.borderRadius = radiusFull;
             document.getElementById("radius").style.backgroundColor = generateColor;
+
             document.getElementById("radius").onclick = function () {
                 document.getElementById("radius").style.display = "none";
                 var end = new Date().getTime();
@@ -120,7 +125,9 @@
                 }, 300)
             }
         }
+
         RandomPlay();
+
         document.getElementById("btn").onclick = function () {
             document.getElementById("btn").style.display = "none";
             document.getElementById("time").style.opacity = "1";

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>Massiv</title>
+</head>
+<body>
+    <script>
+
+        let arr = [2, 5, 8, 4, 5, 6]; 
+        let copyArr = arr.slice();
+        arr[0] = 5;
+        console.log(copyArr);
+        arr.sort(compareNum);
+        console.log(arr);   
+        function compareNum(a, b) {
+            return a - b;
+        }
+
+        arr.pop();
+        arr.push(7);
+        console.log(arr);
+        for (let value of arr) {
+            console.log(arr[value]);
+        }
+         
+        arr.forEach(function(item, i, arr) {
+            console.log(`${i}: имеет значение ${item} из массива ${arr}`);
+        })
+
+        let str = prompt("", "");
+        let massiv = str.split(", ");
+        console.log(massiv.join('; '));
+        console.log(massiv);
+
+
+
+
+    </script>
+</body>
+</html>

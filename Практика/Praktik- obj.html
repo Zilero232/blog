@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>obj</title>
+</head>
+
+<body>
+    <script>
+
+        const obj = {
+            name: 'text',
+            width: 1024,
+            height: 1024,
+            colors: {
+                border: 'black',
+                bg: 'red'
+            }
+        }
+        console.log(Object.keys(obj).length);
+        console.log(obj.name);
+        delete obj.name
+        console.log(obj);
+
+
+        let count = 0;
+        for (let key in obj) {
+            if (typeof (obj[key]) === 'object') {
+                for (let i in obj[key]) {
+                    console.log(`Свойства ${i} имеет значение ${obj[key][i]}`);
+                }
+            } else {
+                console.log(`Свойства ${key} имеет значение ${obj[key]}`);
+            }
+            count++;
+        }
+        console.log(count);
+
+
+        const number = {
+            a: 3,
+            b: 5,
+            c: {
+                x: 7,
+                y: 2
+            }
+        }
+        let copy = number;
+        function copyObj(mainObj) {
+            let ObjCopy = {};
+            for (let key in mainObj) {
+                ObjCopy[key] = mainObj[key];
+            }
+            return (ObjCopy);
+        }
+        const newCopy = copyObj(number);
+        number.a = 1;
+        number.c.x = 3;
+        console.log(newCopy); 
+        console.log(copy);
+
+        const add = {
+            d: 17,
+            g: 13
+        }
+
+        let clone = Object.assign({}, add);
+        clone.d = 20;
+        console.log(add);
+        console.log(clone);
+
+
+        const soldier = {
+            health: 100,
+            armor: 200
+        }
+        let john = Object.create(soldier);
+        john = {
+            speed: 300
+        }
+    // //    john.__proto__ = soldier;
+    //    console.log(john.armor)
+
+       Object.setPrototypeOf(john, soldier);
+       console.log(john.speed);
+
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+<body>
+    <script>
+        
+        function first() {
+            setTimeout(function() {
+                console.log(1);
+            }, 500);
+        }
+
+        function second() {
+            console.log(2);
+        }
+
+        first();
+
+        second();
+
+        function alrJS(loong, allods) {
+            console.log(`Я учу ${loong}`);
+            allods();
+        }
+
+        function done() {
+            console.log('Я всё сделал');
+        }
+
+        alrJS('JavaScript', done);
+
+
+    </script>
+</body>
+</html>
