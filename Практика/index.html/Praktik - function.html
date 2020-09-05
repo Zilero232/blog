@@ -7,6 +7,8 @@
 </head>
 <body>
     <script>
+        'use strict'
+      
         
         function first() {
             setTimeout(function() {
@@ -32,6 +34,143 @@
         }
 
         alrJS('JavaScript', done);
+
+        //==========================================================//
+        class User {
+            constructor(name, id) {
+                this.name = name;
+                this.id = id;
+                this.human = true;
+            }
+            hello() {
+                console.log(`Hello! ${this.name}`);
+            }
+            exit() {
+                console.log(`Пользователь ${this.name} ушёл`)
+            }
+        }
+        const ivan = new User('Иван', 28);
+        const alex = new User('Alex', 50);
+        console.log(ivan);
+        console.log(alex);
+
+        //==========================================================//
+        function showThis(a, b) {
+            function sum() {
+                return a + b;
+            }
+
+            console.log(sum());
+        }
+        showThis(4, 5);
+
+
+        const obj = {
+            a: 10,
+            b: 20,
+            с: 30,
+            sum: function() {
+                console.log(this);
+                function show() {
+                    console.log(this);
+                }
+                show();
+            }
+        }
+        obj.sum();
+
+
+        function sayName(surname) {
+            console.log(this);
+            console.log(this.name + surname);
+        }
+        const user = {
+            name: 'alex'
+        }
+        sayName.call(user, 'Artemev');
+        sayName.apply(user, ['Artemev']);
+
+        function count(num) {
+            return this * num;
+        }
+        const double = count.bind(2);
+        console.log(double(2));
+        console.log(double(13));
+
+
+        const bj = {
+            num: 5,
+            sayNumber: function() {
+                const say = () => {
+                    console.log(this.num);
+                }
+
+                say();
+            }
+        }
+        bj.sayNumber();
+
+
+        const calc = a => a * 2;
+
+        console.log(calc(5));
+     
+        // 1) Обычная функция: this == window, но если стоит строгий режим тогда undefined;
+        // 2) Контекст у методов обьекта будет сам обьект;
+        // 3) this  в контсрукторах и классах - это новый экземпляр обьекта
+        // 4) Ручная привязка this (call, applay, bind)
+        //==========================================================//
+        function hello() {
+            console.log('Hello', this);
+        }
+
+        const person = {
+            name: 'Alex',
+            age: 43,
+            sayHello: hello,
+            sayHelloWindow: hello.bind(document),
+            logInfo: function(job, phone) {
+                console.group(`${this.name} info`)
+                console.log(`Name is ${this.name}`)
+                console.log(`Age is ${this.age}`)         
+                console.log(`${job}`)
+                console.log(`${phone}`)
+                 console.groupEnd()
+            }
+        }
+
+        const lena = {
+            name: 'Elena',
+            age: 25
+        }
+
+        const arr = [1, 2, 3, 4, 5];
+
+        Array.prototype.mylBy = function(n) {
+            return this.map(function(i) {
+                return i * n
+            })
+        }
+
+        console.log(arr.mylBy(20));
+
+        //==========================================================//
+        class Coco {
+            constructor(name, age, id) {
+                this.name = name;
+                this.age = age;
+                this.id = id;
+            }
+
+            hello() {
+                console.log(`User ${this.name}`)
+            }
+        }
+
+        const useer = new Coco('Sasha', 18, 1)
+
+        useer.hello();
+        console.log(useer);
 
 
     </script>

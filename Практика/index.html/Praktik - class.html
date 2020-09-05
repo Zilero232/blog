@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class</title>
+</head>
+<body>
+    <script>
+        'use strict'
+
+        class Trap {
+            constructor(height, width) {
+                this.height = height;
+                this.width = width;
+            }
+
+            calcArea() {
+                return this.height * this.width;
+            }
+        }
+        const ttr = new Trap(10, 10);
+        console.log(ttr.calcArea());
+
+        class ColorRestangeWithText extends Trap {
+            constructor(height, width, bg, text) {
+                super(height, width);
+                this.bg = bg;
+                this.text = text;
+            }
+
+            showColorText() {
+                console.log(`Текст: ${this.text}, color: ${this.bg}`);
+            }
+        }
+
+        const Resnagle = new ColorRestangeWithText(10, 15, 'Aleksandr', 'blue');
+        console.log(Resnagle.showColorText());
+        console.log(Resnagle.calcArea());
+
+
+        //========================================================================
+        const log = function(a, b, ...rest) {
+            console.log(a, b, rest);
+        }
+        log('basic', 'rest', 'operator', 'usage');
+
+        function calcOrDouble(number, basis = 2) {
+            console.log(number * basis);
+        }
+        calcOrDouble(3);
+    </script>
+</body>
+</html>
