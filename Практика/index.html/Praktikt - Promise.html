@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+
+        console.log('Подготовка данных...');
+
+        const promise = new Promise((resolve, reject) => {
+            const product = {
+                name: 'TV',
+                price: 2000
+            }
+            resolve(product);
+        }).then((data) => {
+            setTimeout(() => {
+                console.log('Загрузка данных...');
+            }, 1000);
+            data.status = 'OK';
+            return (data);
+        }).then(data => {
+            data.modify = true;
+            return data;
+        }).then(data => {
+            setTimeout(() => {
+                console.log('Данные получены!');
+                console.log(data);
+            }, 2000)
+        }).catch(() => {
+            console.log('Произошла ошибка!')
+        });
+    </script>
+</body>
+
+</html>

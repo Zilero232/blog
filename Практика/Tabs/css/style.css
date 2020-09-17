@@ -313,6 +313,7 @@ a {
 }
 
 .offer__slider-wrapper {
+    position: relative;
     width: 100%;
     margin-top: 15px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, .25)
@@ -736,4 +737,29 @@ a {
     to {
         opacity: 1;
     }
+}
+
+.carousel__indicators {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 15;
+}
+
+.dots {
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    margin: 3px 3px;
+    background-color: black;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+}
+
+.dots__active {
+    background-color: yellow;
+    transition: all .5s;
 }

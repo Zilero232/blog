@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+
+<body>
+    <div>RUB</div>
+    <input type="text" class="inputRUB">
+    <div>EURO</div>
+    <input type="text" class="inputUSD">
+    <script>
+        // const arr = {
+        //     name: 'sasha',
+        //     age: 45,
+        //     mom: {
+        //         momName: 'Elena',
+        //         age: 40
+        //     }
+        // }
+
+        // console.log(arr);
+        // const clone = JSON.parse(JSON.stringify(arr));
+        // clone.mom.momName = 'Anna';
+        // console.log(clone);
+
+
+
+
+        //=====================================================================================
+        const inputRUB = document.querySelector('.inputRUB'),
+            inputUSD = document.querySelector('.inputUSD');
+
+
+        inputRUB.addEventListener('input', () => {
+            const requst = new XMLHttpRequest();
+
+            requst.open('GET', 'EURO.json');
+            requst.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+            requst.send();
+
+            // status
+            // statusText
+            // response
+            // ReadyState
+
+            requst.addEventListener('load', () => {
+                if (requst.status === 200) {
+                    const data = JSON.parse(requst.response)
+                    inputUSD.value = (+inputRUB.value / data.current.USD).toFixed(2);
+                } else {
+                    inputUSD.value === 'Что-то пошло не так'
+                }
+            })
+        });
+
+
+
+    </script>
+</body>
+
+</html>
